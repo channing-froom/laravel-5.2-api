@@ -74,6 +74,7 @@ INSERT INTO location_types (label, slug, description) VALUES
 CREATE TABLE locations (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(120) NOT NULL,
+  address TEXT NOT NULL,
   description VARCHAR(255),
   latitude VARCHAR(255),
   longitude VARCHAR(255),
@@ -95,7 +96,9 @@ CREATE TABLE application_log_types (
 INSERT INTO application_log_types VALUES
 (1, 'Undefined', 'undefined', 'Undefined'),
 (2, 'Error', 'error', 'Error'),
-(3, 'Warning', 'warning', 'Warning');
+(3, 'Warning', 'warning', 'Warning'),
+(4, 'Event', 'event', 'Event'),
+(5, 'Login', 'login', 'Login');
 
 CREATE TABLE application_logs (
   id INT NOT NULL AUTO_INCREMENT,

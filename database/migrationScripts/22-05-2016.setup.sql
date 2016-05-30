@@ -52,6 +52,7 @@ CREATE TABLE oauth (
   user_id INT NOT NULL,
   application_type_id SMALLINT NOT NULL,
   token VARCHAR(255) NOT NULL,
+  active TINYINT NOT NULL DEFAULT 1,
   created_at TIMESTAMP,
   PRIMARY KEY (id),
   CONSTRAINT fk_oauth_user_id FOREIGN KEY (user_id) REFERENCES users (id),

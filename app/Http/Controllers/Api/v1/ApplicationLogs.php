@@ -17,6 +17,7 @@ class ApplicationLogs extends ApiController
 
     public function index(Request $request)
     {
+        return 'Location types';
         // TODO: Implement index() method.
     }
 

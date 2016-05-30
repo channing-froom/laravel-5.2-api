@@ -16,10 +16,11 @@ class LocationTypes extends ApiController
 
     public function index(Request $request)
     {
+        return 'Location types';
         // TODO: Implement index() method.
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {
         // TODO: Implement show() method.
     }
@@ -29,12 +30,12 @@ class LocationTypes extends ApiController
         // TODO: Implement store() method.
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         // TODO: Implement update() method.
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
         // TODO: Implement destroy() method.
     }

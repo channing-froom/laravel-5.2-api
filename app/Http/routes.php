@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(
+    array(
+        'prefix' => 'api/v1/',
+        'namespace' => 'Api\v1',
+    ),
+    function () {
+
+        Route::get('oath', 'Users@oAuth');
+
+        Route::resource('applications-logs', 'ApplicationLogs');
+        Route::resource('locations', 'Locations');
+        Route::resource('location-types', 'LocationTypes');
+        Route::resource('users', 'Users');
+
+
+
+    }
+);

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\ApplicationTraits;
+use App\Models\User;
+use App\Models\UserTypes;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class ApiTraits
@@ -10,17 +13,54 @@ namespace App\ApplicationTraits;
 trait ApiTraits {
 
     /**
-     * Json response for all API calls
+     * Api response formats and structures
      *
+     *
+     * @author Channing Froom
      * @param array $data
-     * @param int $status
-     * @param array $headers
-     * @param int $options
+     * @param string $message
+     * @param int $responseCode
+     * @param array $errors
      * @return \Illuminate\Http\JsonResponse
      */
-    public static function json($data = array(), $status = 200, $headers = array(), $options = 0){
+    public static function json($data = [], $message = '', $responseCode = 200, $errors = [])
+    {
 
-        return \Illuminate\Routing\ResponseFactory::json($data, $status, $headers, $options);
+        return response()->json([
+            'respose_code' => $responseCode,
+            'message' => $message,
+            'error_code' => (count($errors) > 0 ? 1 : 0),
+            'errors' => $errors,
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Generates a first user to be used. Not a production method !!
+     *
+     * @author Channing Froom
+     */
+    public static function initUserByPass()
+    {
+
+        $adminCheck = User::where('email', 'channing@froomiethought.co.za')
+                            ->first();
+
+        if ($adminCheck) {
+            return;
+        }
+
+        $user = new User();
+        $user->setUserType(UserTypes::where('slug', 'administrator')->first());
+        $user->setEmail('channing@froomiethought.co.za');
+        $user->setFirstName('Channing');
+        $user->setLastName('Froom');
+        $user->setPassword('p');
+        $user->save();
+
+        Log::info('Default user created', [
+            'Email' => $user->getEmail()
+        ]);
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\ApplicationTraits\ApiTraits;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +10,8 @@ use App\Http\Controllers\Controller;
 
 class Locations extends ApiController
 {
+    use ApiTraits;
+
     public function __construct()
     {
         parent::__construct();
@@ -16,27 +19,34 @@ class Locations extends ApiController
 
     public function index(Request $request)
     {
-        return 'Location types';
-        // TODO: Implement index() method.
+        return ApiTraits::json(\App\Models\Locations::all(), 'LOCATION LIST');
     }
 
     public function show(Request $request, $id)
     {
-        // TODO: Implement show() method.
+        return ApiTraits::json(\App\Models\Locations::find($id), 'SINGLE LOCATION');
     }
 
-    public function store(Request $request)
+    public function store(Requests\LocationsRequest $request, \App\Services\Locations $locationService)
     {
-        // TODO: Implement store() method.
+        try {
+
+            $location = $locationService->ApiCreateOrUpdateLocation($request);
+            return ApiTraits::json($location, 'LOCATION CREATED');
+
+        }catch (\Exception $e) {
+
+            return ApiTraits::json([], 'COULD NOT CREATE LOCATION', 503, [$e->getMessage()]);
+        }
     }
 
     public function update(Request $request, $id)
     {
-        // TODO: Implement update() method.
+        return ApiTraits::json([], 'UNDER CONSTRUCTION');
     }
 
     public function destroy(Request $request, $id)
     {
-        // TODO: Implement destroy() method.
+        return ApiTraits::json([], 'UNDER CONSTRUCTION');
     }
 }

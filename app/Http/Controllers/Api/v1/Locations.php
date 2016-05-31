@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class Locations extends ApiController
 {
@@ -27,8 +28,21 @@ class Locations extends ApiController
         return ApiTraits::json(\App\Models\Locations::find($id), 'SINGLE LOCATION');
     }
 
-    public function store(Requests\LocationsRequest $request, \App\Services\Locations $locationService)
+    public function store(Request $request, \App\Services\Locations $locationService)
     {
+        $validator = Validator::make($request->all(), [
+            'location_type' => 'required|max:120',
+            'name' => 'required|max:120',
+            'address' => 'required|max:120',
+            'description' => 'max:255',
+            'latitude' => 'required|max:255',
+            'longitude' => 'required|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return ApiTraits::json([], 'COULD NOT CREATE LOCATION', 503, $validator->errors()->getMessages());
+        }
+
         try {
 
             $location = $locationService->ApiCreateOrUpdateLocation($request);

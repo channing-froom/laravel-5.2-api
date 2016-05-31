@@ -1,0 +1,362 @@
+{
+	"id": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+	"name": "Laravel-api",
+	"description": "",
+	"order": [
+		"c3d9578d-f8e7-6b38-03c8-a414a1a48857",
+		"df0ddfaa-436e-c241-78ea-aa489d2fb0c9",
+		"37f5209f-3169-3ef6-c52b-77042d73cd9a",
+		"36bc1716-ac1a-8e1c-7237-0ff02c997294",
+		"16306e67-0f61-85f5-c227-6faa2d02e276",
+		"3e6969c7-2979-dac8-b4c5-d7b1668c684c",
+		"759ae7ea-88cf-75f0-a26d-e1ac3bfb75dc",
+		"19a92600-b133-c7e9-6b51-9684d65a9b56",
+		"5325cf49-55c1-b234-563a-d7186a49248f"
+	],
+	"folders": [],
+	"timestamp": 1464532326819,
+	"owner": "241766",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "16306e67-0f61-85f5-c227-6faa2d02e276",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/users/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464694356545,
+			"name": "Update User",
+			"description": "",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "19a92600-b133-c7e9-6b51-9684d65a9b56",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/locations",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": [
+				{
+					"key": "location_type",
+					"value": "company",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "centry city, cape town",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "latitude",
+					"value": "-33.88466740785102",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "longitude",
+					"value": "18.53118896484375",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "All Locations",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464695806661,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "36bc1716-ac1a-8e1c-7237-0ff02c997294",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/users",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "first_name",
+					"value": "Justin",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "last_name",
+					"value": "Slade",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "justin@slade.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "p",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "user_type",
+					"value": "administrator",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464692059650,
+			"name": "Create User",
+			"description": "",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"responses": []
+		},
+		{
+			"id": "37f5209f-3169-3ef6-c52b-77042d73cd9a",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/users/1",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": null,
+			"dataMode": "params",
+			"name": "Single users",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464689556653,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3e6969c7-2979-dac8-b4c5-d7b1668c684c",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/users/2",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": [],
+			"dataMode": "params",
+			"name": "Delete User",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464693474114,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "5325cf49-55c1-b234-563a-d7186a49248f",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/locations/1",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": [
+				{
+					"key": "location_type",
+					"value": "company",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "centry city, cape town",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "latitude",
+					"value": "-33.88466740785102",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "longitude",
+					"value": "18.53118896484375",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Single Locations",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464695823254,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "759ae7ea-88cf-75f0-a26d-e1ac3bfb75dc",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/locations",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": [
+				{
+					"key": "location_type",
+					"value": "company",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "centry city, cape town",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Test Location",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "latitude",
+					"value": "-33.88466740785102",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "longitude",
+					"value": "18.53118896484375",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Create Location",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464695782836,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c3d9578d-f8e7-6b38-03c8-a414a1a48857",
+			"headers": "",
+			"url": "http://laravel.api.lh/api/v1/oath?e",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": [
+				{
+					"key": "email",
+					"value": "channing@froomiethought.co.za",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "p",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Generate oAuth token",
+			"description": "Generate a API token for requests, You will need to copy the token to be used on all other requests",
+			"descriptionFormat": "html",
+			"time": 1464684843666,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "df0ddfaa-436e-c241-78ea-aa489d2fb0c9",
+			"headers": "token: 2B807CDD-27C0-349E-7975-8D751E9EDDCB\n",
+			"url": "http://laravel.api.lh/api/v1/users",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c06659c9-fed1-ae68-48ad-4c1f02013edd",
+			"data": null,
+			"dataMode": "params",
+			"name": "All users",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464689529042,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

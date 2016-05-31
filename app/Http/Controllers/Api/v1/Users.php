@@ -7,6 +7,7 @@ use App\ApplicationTraits\RoleTraits;
 use App\Models\User;
 ;use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Validator;
 
 class Users extends ApiController
 {
@@ -52,8 +53,21 @@ class Users extends ApiController
      * @param \App\Services\Users $userService
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Requests\UserRequest $request, \App\Services\Users $userService)
+    public function store(Request $request, \App\Services\Users $userService)
     {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required|max:120',
+            'user_type' => 'required|max:120',
+            'last_name' => 'required|max:120',
+            'password' => 'required|max:150',
+            'email' => 'required|max:255|unique:users,email'
+        ]);
+
+        if ($validator->fails()) {
+            return ApiTraits::json([], 'COULD NOT CREATE USER', 503, $validator->errors()->getMessages());
+        }
+
+
         try {
 
             $user = $userService->ApiCreateOrUpdate($request);

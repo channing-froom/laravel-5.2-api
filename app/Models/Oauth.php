@@ -22,4 +22,16 @@ class Oauth extends Model
     protected $table = 'oauth';
     public $timestamps = false;
     //
+
+
+    /**
+     * Return only active records
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 }

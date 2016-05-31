@@ -23,7 +23,7 @@ Route::group(
     ),
     function () {
 
-        Route::get('oath', 'Users@oAuth');
+        Route::post('oath', 'Users@oAuth');
 
         Route::resource('applications-logs', 'ApplicationLogs');
         Route::resource('locations', 'Locations');

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\ApplicationTraits\ApiTraits;
+use App\ApplicationTraits\RoleTraits;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Routing\Route;
 
 
 /**
@@ -19,72 +21,15 @@ use App\Http\Controllers\Controller;
  *
  * @package App\Http\Controllers\Api\v1
  */
-abstract class ApiController extends Controller
+abstract class ApiController extends BaseController
 {
 
-    use ApiTraits;
+    use ApiTraits, RoleTraits;
 
     protected function __construct()
     {
-        // ..
+
+        // run middleware on all API requests
+        $this->middleware(\App\Http\Middleware\ApiMiddleware::class, ['except' => ['oAuth']]);
     }
-
-
-    /**
-     * List
-     *
-     * /{controller}
-     *
-     * @API GET
-     * @param Request $request
-     * @return mixed
-     */
-    public abstract function index(Request $request);
-
-    /**
-     * Show Item
-     *
-     * /{controller}/{id}
-     *
-     * @API GET
-     * @param Request $request
-     * @param $id
-     * @return mixed
-     */
-    public abstract function show(Request $request, $id);
-
-    /**
-     * Create new item
-     *
-     * /{controller}
-     *
-     * @API POST
-     * @param Request $request
-     * @return mixed
-     */
-    public abstract function store(Request $request);
-
-    /**
-     * Update item
-     *
-     * /{controller}/{id}
-     *
-     * @API PUT
-     * @param Request $request
-     * @param $id
-     * @return mixed
-     */
-    public abstract function update(Request $request, $id);
-
-    /**
-     * Delete item
-     *
-     * /{controller}/{id}
-     *
-     * @API DELETE
-     * @param Request $request
-     * @param $id
-     * @return mixed
-     */
-    public abstract function destroy(Request $request, $id);
 }

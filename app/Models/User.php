@@ -112,4 +112,9 @@ class User extends Authenticatable
     {
         $this->user_type_id = $userType->getId();
     }
+
+    public function getUserType()
+    {
+        return UserTypes::find($this->user_type_id);
+    }
 }

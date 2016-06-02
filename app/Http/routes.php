@@ -25,8 +25,8 @@ Route::group(
 
         Route::post('oath', 'Users@oAuth');
 
-        Route::resource('locations', 'Locations');
-        Route::resource('users', 'Users');
+        Route::resource('locations', 'LocationsController');
+        Route::resource('users', 'UsersController');
 
 
 

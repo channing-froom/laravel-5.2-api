@@ -1,0 +1,67 @@
+DataLayer\Entities\ApplicationLogs:
+    type: entity
+    table: application_logs
+    indexes:
+        fk_application_logs_user_id:
+            columns:
+                - user_id
+        fk_application_logs_application_type_id:
+            columns:
+                - application_type_id
+        fk_application_logs_application_log_id:
+            columns:
+                - application_log_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        log:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: created_at
+    manyToOne:
+        applicationLog:
+            targetEntity: DataLayer\Entities\ApplicationLogTypes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                application_log_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        applicationType:
+            targetEntity: DataLayer\Entities\ApplicationTypes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                application_type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: DataLayer\Entities\Users
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

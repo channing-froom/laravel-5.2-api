@@ -1,0 +1,78 @@
+DataLayer\Entities\Users:
+    type: entity
+    table: users
+    indexes:
+        fk_user_user_type_id:
+            columns:
+                - user_type_id
+    uniqueConstraints:
+        email:
+            columns:
+                - email
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstName:
+            type: string
+            nullable: false
+            length: 120
+            options:
+                fixed: false
+            column: first_name
+        lastName:
+            type: string
+            nullable: false
+            length: 120
+            options:
+                fixed: false
+            column: last_name
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        rememberToken:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: remember_token
+        createdAt:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            options:
+                default: '0000-00-00 00:00:00'
+            column: updated_at
+    manyToOne:
+        userType:
+            targetEntity: DataLayer\Entities\UserTypes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

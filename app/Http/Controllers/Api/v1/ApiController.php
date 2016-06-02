@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\ApplicationTraits\ApiTraits;
 use App\ApplicationTraits\RoleTraits;
+use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;

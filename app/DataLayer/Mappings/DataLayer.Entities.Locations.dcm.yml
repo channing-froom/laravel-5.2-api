@@ -1,0 +1,71 @@
+DataLayer\Entities\Locations:
+    type: entity
+    table: locations
+    indexes:
+        fk_locations_location_type_id:
+            columns:
+                - location_type_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 120
+            options:
+                fixed: false
+        address:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        latitude:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        longitude:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            options:
+                default: '0000-00-00 00:00:00'
+            column: updated_at
+    manyToOne:
+        locationType:
+            targetEntity: DataLayer\Entities\LocationTypes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                location_type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

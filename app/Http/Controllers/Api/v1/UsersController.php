@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\ApplicationTraits\ApiTraits;
 use App\ApplicationTraits\RoleTraits;
-use App\Models\User;
-;use Illuminate\Http\Request;
+#use App\Models\User;
+use DataLayer\Entities\Users;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
+use LaravelDoctrine\ORM\Facades\Doctrine;
 
-class Users extends ApiController
+class UsersController extends ApiController
 {
     use ApiTraits, RoleTraits;
 

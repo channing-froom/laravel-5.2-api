@@ -4,14 +4,10 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\ApplicationTraits\ApiTraits;
 use App\ApplicationTraits\RoleTraits;
-#use App\Models\User;
-use DataLayer\Entities\Users;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
-use LaravelDoctrine\ORM\Facades\Doctrine;
+use App\Models\User;
 
 class UsersController extends ApiController
 {
@@ -70,7 +66,6 @@ class UsersController extends ApiController
         if ($validator->fails()) {
             return ApiTraits::json([], 'COULD NOT CREATE USER', 503, $validator->errors()->getMessages());
         }
-
 
         try {
 

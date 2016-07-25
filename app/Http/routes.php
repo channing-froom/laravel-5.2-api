@@ -23,7 +23,7 @@ Route::group(
     ),
     function () {
 
-        Route::post('oath', 'Users@oAuth');
+        Route::post('oath', 'UsersController@oAuth');
 
         Route::resource('locations', 'LocationsController');
         Route::resource('users', 'UsersController');

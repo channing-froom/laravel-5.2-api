@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\ApplicationTraits\ApiTraits;
+use App\Services\Locations;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,5 +63,23 @@ class LocationsController extends ApiController
     public function destroy(Request $request, $id)
     {
         return ApiTraits::json([], 'UNDER CONSTRUCTION');
+    }
+
+    public function findByIp(Request $request)
+    {
+        try {
+
+            $locationService = new Locations();
+
+            $data = $locationService->IpLocation(
+                $request->get('ip', null)
+            );
+
+        } catch (\Exception $e) {
+            return ApiTraits::json([], 'UNDER CONSTRUCTION !', $e->getCode(), [$e->getMessage()]);
+        }
+
+        return ApiTraits::json($data, 'LOCATION FOUND');
+
     }
 }

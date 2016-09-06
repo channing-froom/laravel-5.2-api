@@ -25,7 +25,10 @@ Route::group(
 
         Route::post('oath', 'UsersController@oAuth');
 
+        Route::get('locations/ip-find', 'LocationsController@findByIp');
         Route::resource('locations', 'LocationsController');
+
+
         Route::resource('users', 'UsersController');
 
 
